@@ -15,6 +15,10 @@ fi
 echo "Compiling Parser..."
 make
 
+echo
+echo "-------------------------------"
+echo
+
 for file in "$test_dir"/*; do
     if [[ -f "$file" ]]; then
         echo "Parsing $file..."
@@ -26,7 +30,10 @@ for file in "$test_dir"/*; do
 
         ./parse < "$file"
         if [[ $? -ne 0 ]]; then
+            echo
             echo "Compiler Errors. Continuing..."
+            echo
+            echo "-------------------------------"
             echo
             continue
         fi
